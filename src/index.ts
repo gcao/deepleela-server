@@ -22,6 +22,7 @@ type Configuration = {
     max_players: number,
     leela?: LeelaConfiguration,
     leelazero?: LeelaConfiguration,
+    katago?: LeelaConfiguration,
     redis: Host,
     cgos: Host,
     review: Host,
@@ -50,7 +51,11 @@ if (cluster.isMaster) {
     const players = (config.max_players || cpus) / cpus;
 
     AIManager.maxInstances = players;
-    AIManager.configs = new Map([['leela', config.leela], ['leelazero', config.leelazero]]);
+    AIManager.configs = new Map([
+        ['leela', config.leela],
+        ['leelazero', config.leelazero],
+        ['katago', config.katago],
+    ]);
 
     ReviewServer.setRedis(config.redis);
 

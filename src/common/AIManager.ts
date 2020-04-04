@@ -4,6 +4,8 @@ export type LeelaConfiguration = {
     exec: string,
     weights: string,
     playouts: number,
+    model: string,
+    config: string,
 };
 
 export default class AIManager {
@@ -33,7 +35,15 @@ export default class AIManager {
             if (leelazeroConfigs.playouts) leelazeroArgs.push('--playouts', `${leelazeroConfigs ? leelazeroConfigs.playouts || 2000 : 2000}`);
         }
 
-        let argsMap = new Map([['leela', leelaArgs], ['leelazero', leelazeroArgs]]);
+        let katagoConfigs = AIManager.configs.get('katago');
+        let katagoArgs = ['gtp', '-model'];
+        if (katagoConfigs) {
+            katagoArgs.push(katagoConfigs.model);
+            katagoArgs.push('-config');
+            katagoArgs.push(katagoConfigs.config);
+        }
+
+        let argsMap = new Map([['leela', leelaArgs], ['leelazero', leelazeroArgs], ['katago', katagoArgs]]);
         
         let engine = new Controller(AIManager.configs.get(ai).exec, argsMap.get(ai) || []);
         AIManager.controllers.add(engine);
