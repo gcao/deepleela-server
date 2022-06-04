@@ -28,8 +28,8 @@
         "playouts": 200
     },
     "katago": {
-        "exec": "/Users/gcao/daoqi/Katago/cpp/katago",
-        "model": "/Users/gcao/daoqi/Katago/shared/g170-b20c256x2-s1913382912-d435450331.txt.gz",
-        "config": "/Users/gcao/daoqi/Katago/cpp/configs/gtp_example.cfg"
+        "exec": "/home/gcao/KataGo/cpp/katago",
+        "model": "/home/gcao/shared/models/weiqi/model.bin.gz",
+        "config": "/home/gcao/KataGo/cpp/configs/gtp_example.cfg"
     }
 }
