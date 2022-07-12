@@ -172,7 +172,7 @@ export default class LeelaGoServer extends EventEmitter {
 
             switch (cmd.name) {
                 case 'heatmap':
-                    await this.genHeatmap(cmd.id);
+                    // await this.genHeatmap(cmd.id);
                     break;
                 case 'genmove':
                     let result = await LeelaGoServer.genMove(cmd, this.engine, this.engineLogger);
