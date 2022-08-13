@@ -21,7 +21,21 @@ export default class AIManager {
         
         ai = ai ? ai.toLowerCase() : 'leela';
         if (AIManager.controllers.size >= AIManager.maxInstances) return null;
-        if (!AIManager.configs.has(ai)) return null;
+
+        // if (!AIManager.configs.has(ai)) return null;
+        if (!AIManager.configs.has(ai)) {
+            let [_, version] = ai.split(':');
+            let katagoConfigs = AIManager.configs.get('katago');
+            let args = [
+                'gtp',
+                '-model', `/home/gcao/daoqi-opencl/models/daoqi-${version}/model.bin.gz`,
+                '-config', katagoConfigs.config,
+            ];
+            let engine = new Controller(katagoConfigs.exec, args);
+            AIManager.controllers.add(engine);
+
+            return engine;
+        }
 
         let leelaConfigs = AIManager.configs.get('leela');
         let leelaArgs = ['--gtp', '--noponder'];
