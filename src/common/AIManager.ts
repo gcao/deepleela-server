@@ -24,13 +24,14 @@ export default class AIManager {
 
         // if (!AIManager.configs.has(ai)) return null;
         if (!AIManager.configs.has(ai)) {
-            let [_, version] = ai.split(':');
-            let katagoConfigs = AIManager.configs.get('katago');
+            let [name, version] = ai.split(':');
+            let katagoConfigs = AIManager.configs.get(name.toLowerCase());
             let args = [
                 'gtp',
                 '-model', `/home/gcao/daoqi-opencl/models/daoqi-${version}/model.bin.gz`,
                 '-config', katagoConfigs.config,
             ];
+            // console.log(katagoConfigs.exec, args);
             let engine = new Controller(katagoConfigs.exec, args);
             AIManager.controllers.add(engine);
 

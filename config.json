@@ -31,5 +31,10 @@
         "exec": "/home/gcao/KataGo/cpp/katago",
         "model": "/home/gcao/daoqi-opencl/model.bin.gz",
         "config": "/home/gcao/KataGo/cpp/configs/gtp_example.cfg"
+    },
+    "katagox": {
+        "exec": "/home/gcao/KataGo/cpp/katago",
+        "model": "/home/gcao/daoqi-opencl/model.bin.gz",
+        "config": "/home/gcao/KataGo/cpp/configs/gtp_example2.cfg"
     }
 }

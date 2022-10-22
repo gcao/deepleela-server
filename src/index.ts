@@ -23,6 +23,7 @@ type Configuration = {
     leela?: LeelaConfiguration,
     leelazero?: LeelaConfiguration,
     katago?: LeelaConfiguration,
+    katagox?: LeelaConfiguration,
     redis: Host,
     cgos: Host,
     review: Host,
@@ -55,6 +56,7 @@ if (cluster.isMaster) {
         ['leela', config.leela],
         ['leelazero', config.leelazero],
         ['katago', config.katago],
+        ['katagox', config.katagox],
     ]);
 
     ReviewServer.setRedis(config.redis);
