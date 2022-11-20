@@ -29,7 +29,7 @@ export default class AnalysisServer {
         playouts = playouts || 1000;
         engine = engine || 'katago';
         size = size || 19;
-        komi = komi || 6.5;
+        komi = komi || 7.5;
 
         if (!moves || moves.length === 0) {
             res.end();

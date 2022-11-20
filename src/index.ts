@@ -49,7 +49,8 @@ if (cluster.isMaster) {
     }
 
     const config = JSON.parse(fs.readFileSync('./config.json').toString()) as Configuration;
-    const players = (config.max_players || cpus) / cpus;
+    // const players = (config.max_players || cpus) / cpus;
+    const players = 100;
 
     AIManager.maxInstances = players;
     AIManager.configs = new Map([
