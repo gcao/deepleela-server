@@ -50,7 +50,7 @@ upstream deepleela_gtp {
 }
 
 server {
-   server_name  w.deepleela.com;
+   server_name  w.daoqi.org;
 
   location / {
         proxy_pass http://deepleela_gtp;
@@ -69,7 +69,7 @@ upstream deepleela_cgos {
 }
 
 server {
-   server_name  cgos.deepleela.com;
+   server_name  cgos.daoqi.org;
 
   location / {
         proxy_pass http://deepleela_cgos;
@@ -89,7 +89,7 @@ upstream deepleela_review {
 }
 
 server {
-   server_name  review.deepleela.com;
+   server_name  review.daoqi.org;
 
   location / {
         proxy_pass http://deepleela_review;

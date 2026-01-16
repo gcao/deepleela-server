@@ -27,9 +27,9 @@ export default class AnalysisServer {
     handleAnalysis = async (req: Request, res: Response) => {
         let { moves, playouts, engine, size, komi, genmove } = req.body as { moves: [string, string][], playouts?: number, engine?: string, size?: number, komi?: number, genmove: StoneColor };
         playouts = playouts || 1000;
-        engine = engine || 'leela';
+        engine = engine || 'katago';
         size = size || 19;
-        komi = komi || 6.5;
+        komi = komi || 5.5;
 
         if (!moves || moves.length === 0) {
             res.end();
